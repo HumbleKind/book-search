@@ -7,13 +7,13 @@ This is a React-based Google Books Search app.
 
 Users are able to:
 
-### On the Search page ...
+On the Search page ...
 * search for books (via the Google Books API)
 * scroll through a list of search results (including title, author, image and description)
 * 'View' a specific book in the list (linked to respective Google Books title) 
 * 'Save' a specific book in the list to a users 'Saved' list (utilizing MongoDB)
 
-### On the Saved page ...
+On the Saved page ...
 * scroll through a list of saved books
 * 'View' a specific book in the saved books list (linked to respective Google Books title)
 * 'Delete' a specific book from the saved books list
