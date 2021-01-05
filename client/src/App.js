@@ -10,14 +10,14 @@ function App() {
     <Router>
       <Header />
       <Banner />
-      {/* <Switch>
+      <Switch>
         <Route exact path='/'>
           <Search />
         </Route>
         <Route exact path='/saved'>
           <Saved />
         </Route>
-      </Switch> */}
+      </Switch>
     </Router>
   );
 };
