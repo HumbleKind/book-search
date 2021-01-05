@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 import Header from './components/Header';
 import Banner from './components/Jumbotron';
 import Search from './pages/Search';
@@ -10,14 +11,16 @@ function App() {
     <Router>
       <Header />
       <Banner />
-      <Switch>
-        <Route exact path='/'>
-          <Search />
-        </Route>
-        <Route exact path='/saved'>
-          <Saved />
-        </Route>
-      </Switch>
+        <Container>
+        <Switch>
+          <Route exact path='/'>
+            <Search />
+          </Route>
+          <Route exact path='/saved'>
+            <Saved />
+          </Route>
+        </Switch>
+      </Container>
     </Router>
   );
 };
