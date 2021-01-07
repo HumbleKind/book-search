@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Link } from 'react';
 import { Card, Button, InputGroup, Row, Col } from 'react-bootstrap';
 
 function Book(props) {
@@ -7,10 +7,17 @@ function Book(props) {
 			<Card.Body>
 				<InputGroup style={{ display: 'flex' }}>
 					<Card.Title>{ props.title }</Card.Title>
-					<Button variant='primary' type='submit' style={{ marginLeft: 'auto' }}>
+					<Button 
+						variant='success' 
+						type='button' 
+						style={{ marginLeft: 'auto' }} 
+						onClick={() => (window.open(props.previewLink, '_blank'))}>
 							View
 					</Button>
-					<Button variant='primary' type='submit'  style={{ marginLeft: '10px' }}>
+					<Button 
+						variant='warning' 
+						type='button' 
+						style={{ marginLeft: '10px' }}>
 							Save
 					</Button>
 				</InputGroup>

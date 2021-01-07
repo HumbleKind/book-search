@@ -19,7 +19,7 @@ function Search() {
 		event.preventDefault();
 		API.getGoogle(search)
 			.then(res => {
-				// console.log(search);
+				console.log(search);
 				console.log(res.data);
 				setBooks(res.data)})
 			.catch(err => console.log(err));
@@ -50,6 +50,7 @@ function Search() {
 						<Book
 							key={book.id}
 							title={book.volumeInfo.title}
+							previewLink={book.volumeInfo.imageLinks.previewLink}
 							authors={book.volumeInfo.authors}
 							description={book.volumeInfo.description}
 							thumbnail={book.volumeInfo.imageLinks.thumbnail}
