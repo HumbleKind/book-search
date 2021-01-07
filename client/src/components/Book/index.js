@@ -1,5 +1,5 @@
-import React, { Link } from 'react';
-import { Card, Button, InputGroup } from 'react-bootstrap';
+import React from 'react';
+import { Card, Button, InputGroup, Row, Col } from 'react-bootstrap';
 
 function Book(props) {
   return (
@@ -15,14 +15,16 @@ function Book(props) {
 					</Button>
 				</InputGroup>
 				<Card.Text>By: { props.authors }</Card.Text>
-				<InputGroup>
-					<InputGroup.Prepend>
-						<Card.Img />
-					</InputGroup.Prepend>
-					<Card.Text>
-					{ props.description }
-					</Card.Text>
-				</InputGroup>
+				<Row>
+					<Col sm={2}>
+						<Card.Img src={ props.thumbnail } />
+					</Col>
+					<Col>
+						<Card.Text>
+						{ props.description }
+						</Card.Text>
+					</Col>
+				</Row>
 			</Card.Body>
 		</Card>
   );

@@ -29,7 +29,7 @@ function Search() {
 		<>
 			<Card>
 				<Card.Body>
-					<Card.Title>Search</Card.Title>
+					<Card.Title>Enter Search Terms</Card.Title>
 					<InputGroup>
 						<InputGroup.Prepend>
 							<InputGroup.Text>Book:</InputGroup.Text>
@@ -46,12 +46,16 @@ function Search() {
 			<br />
 			{books.length ? (
 				books.map(book => (
-					<Book
-						key={book.id}
-						title={book.volumeInfo.title}
-						authors={book.volumeInfo.authors}
-						description={book.volumeInfo.description}>
-					</Book>
+					<div>
+						<Book
+							key={book.id}
+							title={book.volumeInfo.title}
+							authors={book.volumeInfo.authors}
+							description={book.volumeInfo.description}
+							thumbnail={book.volumeInfo.imageLinks.thumbnail}
+						/>
+						<br />
+					</div>
 				))
 			) : (
         <h5 style={{ textAlign: "center" }}>No Results to Display</h5>
