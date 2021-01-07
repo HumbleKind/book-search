@@ -50,7 +50,7 @@ function Search() {
 						<Book
 							key={book.id}
 							title={book.volumeInfo.title}
-							previewLink={book.volumeInfo.imageLinks.previewLink}
+							previewLink={book.volumeInfo.infoLink}
 							authors={book.volumeInfo.authors}
 							description={book.volumeInfo.description}
 							thumbnail={book.volumeInfo.imageLinks.thumbnail}
