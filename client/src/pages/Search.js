@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Card, Form, InputGroup, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-import API from '../utils/API';
 import Book from '../components/Book/';
+import API from '../utils/API';
 
 function Search() {
 
 	const [books, setBooks] = useState([]);
-	const [formObject, setFormObject] = useState({});
+	const [search, setSearch] = useState();
+
+	function handleInputChange(event) {
+		// console.log(event.target.value);
+		setSearch(event.target.value);
+	};
 	
-	function searchBooks() {
-		API.findAll()
-			.then(res => setBooks(res.data))
+	function handleFormSubmit(event) {
+		event.preventDefault();
+		API.getGoogle(search)
+			.then(res => {
+				// console.log(search);
+				console.log(res.data);
+				setBooks(res.data)})
 			.catch(err => console.log(err));
 	};
 
@@ -25,9 +34,9 @@ function Search() {
 						<InputGroup.Prepend>
 							<InputGroup.Text>Book:</InputGroup.Text>
 						</InputGroup.Prepend>
-						<Form.Control type="text" placeholder="title" />
+						<Form.Control type='text' placeholder='title' onChange={handleInputChange} />
 						<InputGroup.Append>
-							<Button variant="primary" type="submit">
+							<Button variant='primary' type='submit' onClick={handleFormSubmit}>
 								Search
 							</Button>
 						</InputGroup.Append>
@@ -35,7 +44,18 @@ function Search() {
 				</Card.Body>
 			</Card>
 			<br />
-			<Book />
+			{books.length ? (
+				books.map(book => (
+					<Book
+						key={book.id}
+						title={book.volumeInfo.title}
+						authors={book.volumeInfo.authors}
+						description={book.volumeInfo.description}>
+					</Book>
+				))
+			) : (
+        <h5 style={{ textAlign: "center" }}>No Results to Display</h5>
+			)}
 		</>
 	);
 };
